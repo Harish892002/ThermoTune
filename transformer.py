@@ -20,7 +20,7 @@ import csv
 # =========================
 class Config:
     FILENAME = 'rna_sequences_mfe.csv'
-    SEQ_LEN = 128   # 🔹 Matches paragraph
+    SEQ_LEN = 128   # Matches paragraph
 
     d_model = 256
     nhead = 8
@@ -126,7 +126,6 @@ class RnaTransformerRegressor(nn.Module):
     def __init__(self):
         super().__init__()
 
-        # 🔹 One-hot → d_model projection
         self.input_proj = nn.Linear(4, Config.d_model)
 
         self.pos = PositionalEncoding(Config.d_model, Config.SEQ_LEN)
